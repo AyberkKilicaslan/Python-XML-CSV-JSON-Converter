@@ -6,5 +6,5 @@ python <filename> <input file> <output file/xsd file> <type>
  
 
 The sample command line usage converting from XML to JSON as follows::
-python student_id.py test.xml test.json 3
+python converter.py test.xml test.json 3
 
