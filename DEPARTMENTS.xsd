@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="departments">
+        <xs:complexType>
+         <xs:sequence>
+            <xs:element name="university" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+          
+                    <xs:sequence>
+            
+                        <xs:element maxOccurs="unbounded" name="item">
+               
+                            <xs:complexType>
+
+                                <xs:sequence>
+
+                                    <xs:element name="name">
+                                        <xs:complexType>
+                                          <xs:simpleContent>
+                                           <xs:extension base="xs:string">
+                                            <xs:attribute name="lang" use="required">
+                                                <xs:simpleType>
+                                                    <xs:restriction base="xs:string">
+                                                        <xs:pattern value="en"/>
+                                                        <xs:pattern value="tr"/>
+                                                    </xs:restriction>
+                                                </xs:simpleType>
+                                            </xs:attribute>
+                                            <xs:attribute name="second" use="required">
+                                                <xs:simpleType>
+                                                    <xs:restriction base="xs:string">
+                                                        <xs:pattern value="yes"/>
+                                                        <xs:pattern value="no"/>
+                                                    </xs:restriction>
+                                                </xs:simpleType>
+                                            </xs:attribute>
+                                           </xs:extension>
+                                          </xs:simpleContent>
+                                        </xs:complexType>
+                                    </xs:element>    
+                                    <xs:element name="period" type="xs:integer"/> 
+                                    <xs:element name="quota">  
+                                        <xs:complexType>
+                                          <xs:simpleContent>
+                                           <xs:extension base="xs:integer">
+                                            <xs:attribute name="spec" type="xs:integer" use="required"/>
+                                           </xs:extension>
+                                          </xs:simpleContent>
+                                        </xs:complexType>
+                                    </xs:element>    
+                                    <xs:element name="field">
+                                        <xs:simpleType>
+                                            <xs:restriction base="xs:string">
+                                                <xs:pattern value="SAY"/>
+                                                <xs:pattern value="EA"/>
+                                                <xs:pattern value="SÖZ"/>
+                                                <xs:pattern value="DİL"/>
+                                            </xs:restriction>
+                                        </xs:simpleType>
+                                    </xs:element>
+                                    <xs:element name="last_min_score">
+                                        <xs:complexType>
+                                          <xs:simpleContent>
+                                           <xs:extension base="xs:string">
+                                            <xs:attribute name="order"  use="required">
+                                                <xs:simpleType>
+                                                    <xs:restriction base="xs:integer"/>
+                                                </xs:simpleType>
+                                            </xs:attribute>
+                                           </xs:extension>
+                                          </xs:simpleContent>
+                                        </xs:complexType>
+                                    </xs:element>    
+                                    <xs:element name="grant">
+                                        <xs:simpleType>
+                                            <xs:restriction base="xs:string" >
+                                                <xs:pattern value=""/>
+                                                <xs:pattern value="25"/>
+                                                <xs:pattern value="50"/>
+                                                <xs:pattern value="100"/>
+                                            </xs:restriction>
+                                        </xs:simpleType>
+                                    </xs:element>
+
+                                </xs:sequence>
+
+                                <xs:attribute name="faculty" type="xs:string" use="required"/>
+                                <xs:attribute name="id" use="required">
+                                    <xs:simpleType>
+                                        <xs:restriction base="xs:integer">
+                                            <xs:pattern value="\d{9,9}"/>
+                                        </xs:restriction>
+                                    </xs:simpleType>
+                                </xs:attribute>
+
+                            </xs:complexType>
+                        </xs:element>    
+                    </xs:sequence>
+                    <xs:attribute name="name" type="xs:string" use="required"/>
+                    <xs:attribute name="uType" use="required">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                                <xs:pattern value="Vakıf"/>
+                                <xs:pattern value="Devlet"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                </xs:complexType>
+            </xs:element>
+          </xs:sequence>  
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
+
